@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
+
 
 const UpdateMovie = (props) => {
-
     return (
-        <div>
-            <h1>Update</h1>
-            <form>
-
-            </form>
-        </div>
+        <div>Poop</div>
     )
 }
 

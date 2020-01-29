@@ -29,16 +29,21 @@ const UpdateMovie = (props) => {
             ...movie,
             [ev.target.name]: value
         });
-    }
+    } 
 
     const handleSubmit = event => {
         event.preventDefault();
         axios
             .put(`http://localhost:5000/api/movies/${id}`, movie)
-            .then(res => console.log(res))
+            .then(res => {
+                
+                let updatedMovies = props.movies.map(movie => movie.id === res.data.id ? movie = res.data : movie)
+                props.setMovies(updatedMovies)
+                props.history.push('/')
+            })
             .catch(err => console.log(err))
     }
-
+    
     return (
         <div>
             <h1>Update This Movie</h1>

@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import { Link } from 'react-router-dom';
-
 import MovieCard from "./MovieCard";
 
 export default class Movie extends React.Component {
@@ -33,6 +31,11 @@ export default class Movie extends React.Component {
     const addToSavedList = this.props.addToSavedList;
     addToSavedList(this.state.movie);
   };
+
+  handleUpdate = (event) => {
+    event.preventDefault();
+    this.props.history.push(`/update-movie/${this.state.movie.id}`)
+  }
   
   render() {
     console.log(this.state.movie)
@@ -46,11 +49,7 @@ export default class Movie extends React.Component {
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
-        <div>
-          <Link to={`/update-movie/${this.state.movie.id}`}>
-            Update
-          </Link>
-        </div>
+        <button onClick={this.handleUpdate}>Update</button>
       </div>
     );
   }

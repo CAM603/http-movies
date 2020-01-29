@@ -8,6 +8,8 @@ import UpdateMovie from "./Movies/UpdateMovie";
 const App = () => {
   const [savedList, setSavedList] = useState([]);
 
+  console.log(savedList)
+
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
   };

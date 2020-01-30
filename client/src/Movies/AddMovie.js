@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const AddMovie = () => {
+const AddMovie = (props) => {
     const [newMovie, setNewMovie] = useState({
+        id: null,
         title: '',
         director: '',
         metascore: '',
@@ -15,7 +16,7 @@ const AddMovie = () => {
         value = parseInt(value);
     }
         setNewMovie({
-        ...movie,
+        ...newMovie,
         [ev.target.name]: value
         });
     };
@@ -57,6 +58,7 @@ const AddMovie = () => {
                 value={newMovie.metascore}
                 onChange={handleChange}
                 />
+                <button>Add</button>
             </form>
         </div>
     )

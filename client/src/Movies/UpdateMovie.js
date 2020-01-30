@@ -6,6 +6,7 @@ const initialMovie = {
     title: '',
     director: '',
     metascore: '',
+    stars: []
 }
 
 const UpdateMovie = (props) => {
@@ -68,6 +69,15 @@ const UpdateMovie = (props) => {
                 onChange={handleChange}
                 placeholder="metascore"
                 />
+                {movie.stars.map(star => (
+                    <input 
+                    type="text"
+                    name={star}
+                    value={star}
+                    onChange={handleChange}
+                    placeholder="star"
+                    />
+                ))}
                 <button>Change</button>
             </form>
         </div>
